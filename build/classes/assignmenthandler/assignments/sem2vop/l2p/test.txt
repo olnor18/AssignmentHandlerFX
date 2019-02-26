@@ -1,0 +1,3 @@
+testfil til at vise at java er trals.
+Dette er test.
+test

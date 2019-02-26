@@ -75,8 +75,11 @@ public class FXMLDocumentController implements Initializable
     
     private Assignment[] vopSem2Assignments =
     {
-        new Assignment("Test", "CLI", "TBW 3", "assignmenthandler.assignments.test.test", false),
-        new Assignment("Lesson 3", "Preparation", "TBW", "sem2vop/l1p", true),
+        //new Assignment("Test", "CLI", "TBW 3", "assignmenthandler.assignments.test.test", false),
+        new Assignment("Lesson 1", "Class", "TBW", "sem2vop/l1c", true),
+        new Assignment("Lesson 2", "Preparation", "TBW", "assignmenthandler.assignments.sem2vop.l2p.CamelWriter", false),
+        new Assignment("Lesson 2", "Class", "TBW", "sem2vop/l2c", true),
+        new Assignment("Lesson 3", "Class", "TBW", "assignmenthandler.assignments.sem2vop.l3c.F19L3Mountain", false),
 
     };
 
@@ -168,7 +171,7 @@ public class FXMLDocumentController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
 
-        for (Assignment a : oopSem1Assignments)
+        for (Assignment a : vopSem2Assignments)
         {
             list.getItems().add(a);
         }
