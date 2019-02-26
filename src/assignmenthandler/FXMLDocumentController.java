@@ -76,7 +76,7 @@ public class FXMLDocumentController implements Initializable
     private Assignment[] vopSem2Assignments =
     {
         new Assignment("Test", "CLI", "TBW 3", "assignmenthandler.assignments.test.test", false),
-        new Assignment("Lesson 3", "Preparation", "TBW", "l1p", true),
+        new Assignment("Lesson 3", "Preparation", "TBW", "sem2vop/l1p", true),
 
     };
 

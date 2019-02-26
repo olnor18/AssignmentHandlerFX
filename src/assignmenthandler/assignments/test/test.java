@@ -6,7 +6,6 @@
 package assignmenthandler.assignments.test;
 
 
-import assignmenthandler.ConsoleController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
