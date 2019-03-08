@@ -139,8 +139,14 @@ public class FXMLDocumentController implements Initializable {
         {
             if (!p1.getText().isEmpty() && !p2.getText().isEmpty())
             {
-                double[] p = {Double.parseDouble(p1.getText()), Double.parseDouble(p2.getText())};
-                returnString = ShapeFacade.getInstance().getShapeInfo(shape, p);
+                try
+                {
+                    double[] p = {Double.parseDouble(p1.getText()), Double.parseDouble(p2.getText())};
+                    returnString = ShapeFacade.getInstance().getShapeInfo(shape, p);
+                } catch (NumberFormatException e)
+                {
+                    returnString = "ERROR: Invalid number";
+                }
             }
             else
             {
