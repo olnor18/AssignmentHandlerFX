@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignmenthandler;
+package assignmenthandler.assignments.sem2vop.l4c;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,19 +15,16 @@ import javafx.stage.Stage;
  *
  * @author Oliver
  */
-public class AssignmentHandler extends Application
+public class L4c extends Application
 {
-
+    
     @Override
     public void start(Stage stage) throws Exception
     {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
+        
         Scene scene = new Scene(root);
-        stage.setTitle("VOP Assignments | Oliver Nordestgaard");
-        stage.setResizable(false);
-        stage.sizeToScene();
-        stage.setOnCloseRequest(e -> System.exit(0));
+        
         stage.setScene(scene);
         stage.show();
     }
@@ -39,5 +36,5 @@ public class AssignmentHandler extends Application
     {
         launch(args);
     }
-
+    
 }

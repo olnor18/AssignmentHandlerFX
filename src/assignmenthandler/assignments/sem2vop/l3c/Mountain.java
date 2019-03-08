@@ -1,7 +1,5 @@
 package assignmenthandler.assignments.sem2vop.l3c;
 
-import java.util.Arrays;
-
 /**
  *
  * @author erso Udleveret kode skelet med main()-metode til opgave 4, VOP

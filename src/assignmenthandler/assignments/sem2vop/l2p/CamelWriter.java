@@ -5,8 +5,6 @@
  */
 package assignmenthandler.assignments.sem2vop.l2p;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 
@@ -16,22 +14,20 @@ import java.util.Scanner;
  */
 public class CamelWriter {
 
-    private final File inFile;
+    private String fName;
  
 
     public CamelWriter(String fName) {
-        inFile = new File(fName);
-        System.out.println(inFile.getAbsolutePath());
+       this.fName = fName;
     }
 
     public void readLines() {
-        try (Scanner scanner = new Scanner(inFile)) {
-             System.out.println(scanner.hasNextLine());
+        try (Scanner scanner = new Scanner(CamelWriter.class.getResourceAsStream(fName))) {
              while (scanner.hasNextLine()) {
                 convert2camel(scanner.nextLine());
             }
-        } catch (FileNotFoundException ex) {
-            System.out.println("ERROR: File could not be found");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -45,11 +41,11 @@ public class CamelWriter {
     }
 
     public static void main(String[] args) {
-        new CamelWriter("src/assignmenthandler/assignments/sem2vop/l2p/DryLips.txt").readLines();
+        new CamelWriter("DryLips.txt").readLines();
         System.out.println("\n\n|--------------------------------|\n\n");
-        new CamelWriter("src/assignmenthandler/assignments/sem2vop/l2p/MaryAnn.txt").readLines();
+        new CamelWriter("MaryAnn.txt").readLines();
         System.out.println("\n\n|--------------------------------|\n\n");
-        new CamelWriter("src/assignmenthandler/assignments/sem2vop/l2p/OhLand.txt").readLines();
+        new CamelWriter("OhLand.txt").readLines();
     }
 
 }

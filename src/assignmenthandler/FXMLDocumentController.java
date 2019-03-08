@@ -79,8 +79,9 @@ public class FXMLDocumentController implements Initializable
         new Assignment("Lesson 1", "Class", "TBW", "sem2vop/l1c", true),
         new Assignment("Lesson 2", "Preparation", "TBW", "assignmenthandler.assignments.sem2vop.l2p.CamelWriter", false),
         new Assignment("Lesson 2", "Class", "TBW", "sem2vop/l2c", true),
+        new Assignment("Lesson 3", "Preparation", "TBW", "assignmenthandler.assignments.sem2vop.l3p.Main", false),
         new Assignment("Lesson 3", "Class", "TBW", "assignmenthandler.assignments.sem2vop.l3c.F19L3Mountain", false),
-
+        new Assignment("Lesson 4", "Class", "TBW", "sem2vop/l4c", true),
     };
 
     @FXML
@@ -88,33 +89,21 @@ public class FXMLDocumentController implements Initializable
     {
         if (list.getSelectionModel().getSelectedItem().isfx)
         {
-            Parent root = new FXMLLoader(new File(list.getSelectionModel().getSelectedItem().path).toURL()).load();
+            Parent root = new FXMLLoader(AssignmentHandler.class.getResource(list.getSelectionModel().getSelectedItem().path)).load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setTitle(list.getSelectionModel().getSelectedItem().toString());
             stage.setResizable(false);
             stage.sizeToScene();
             stage.setScene(scene);
-            //stage.setHeight(stage.getMaxHeight());
-            //stage.setWidth(stage.getMaxWidth());
+
             stage.show();
         } else
         {
 
             if (console == null)
             {
-                /*
-                //Launch Console
-                FXMLLoader loader = new FXMLLoader(new File("src/assignmenthandler/console.fxml").toURL());
-                Parent root = (Parent) loader.load();
-                Scene scene = new Scene(root);
-                stageConsole = new Stage();
-                stageConsole.setTitle("Console");
-                stageConsole.setResizable(false);
-                stageConsole.setScene(scene);
-                stageConsole.setOnHiding(we -> stageConsole = null);
-                stageConsole.show();
-                 */
+                
                 console = new CLIApplication(list.getSelectionModel().getSelectedItem().path);
             } else if (console.stage != null && console.stage.isShowing())
             {
@@ -124,31 +113,6 @@ public class FXMLDocumentController implements Initializable
                 console = new CLIApplication(list.getSelectionModel().getSelectedItem().path);
             }
 
-            /*
-            Class<?> c = Class.forName(list.getSelectionModel().getSelectedItem().path);
-            Method method = c.getDeclaredMethod("main", String[].class);
-            Thread t = new Thread(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    Platform.runLater(() ->
-                    {
-                        try
-                        {
-                            //Reflection
-
-                            String[] params = null;
-                            method.invoke(null, (Object) params);
-
-                        } catch (Exception ex)
-                        {
-                            ex.printStackTrace();
-                        }
-                    });
-                }
-            });
-            t.start();*/
         }
 
     }
@@ -175,16 +139,7 @@ public class FXMLDocumentController implements Initializable
         {
             list.getItems().add(a);
         }
-        /*
-        list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Assignment>()
-        {
-            @Override
-            public void changed(ObservableValue<? extends Assignment> observable, Assignment oldValue, Assignment newValue)
-            {
-                description.setText(newValue.description);
-            }
-        });
-        */
+
         oopSem1.setOnAction(e -> changeClass(oopSem1Assignments));
         vopSem2.setOnAction(e -> changeClass(vopSem2Assignments));
         

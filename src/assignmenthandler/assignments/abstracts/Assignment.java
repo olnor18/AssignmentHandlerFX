@@ -5,6 +5,8 @@
  */
 package assignmenthandler.assignments.abstracts;
 
+import java.net.URL;
+
 /**
  *
  * @author Oliver
@@ -22,7 +24,7 @@ public class Assignment
         this.lesson = lesson;
         this.typeOfExcersise = typeOfExcersise;
         this.description = description;
-        this.path = isfx ? "src/assignmenthandler/assignments/"+path+"/FXMLDocument.fxml" : path;
+        this.path = isfx ? "/assignmenthandler/assignments/"+path+"/FXMLDocument.fxml" : path;
         this.isfx = isfx;
     }
     
@@ -31,4 +33,6 @@ public class Assignment
     {
         return lesson + " | " + typeOfExcersise;
     }
+
+    
 }

@@ -5,8 +5,6 @@
  */
 package assignmenthandler.assignments.sem2vop.l3c;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -19,6 +17,7 @@ public class F19L3Mountain {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args){
 
     // Til test af Mountain-klassen
@@ -42,11 +41,9 @@ public class F19L3Mountain {
         Arrays.sort(testArray);
         System.out.println(Arrays.toString(testArray));
         
-        
         MountainSet mountainSet = new MountainSet();
-        File file = new File("src/assignmenthandler/assignments/sem2vop/l3c/FranskeBjerge.csv");
         
-        try(Scanner scanner = new Scanner(file))
+        try(Scanner scanner = new Scanner(F19L3Mountain.class.getResourceAsStream("FranskeBjerge.csv")))
         {
             while(scanner.hasNextLine())
             {
@@ -55,8 +52,8 @@ public class F19L3Mountain {
                 mountainSet.getSet().add(new Mountain(mountainArguments[0], mountainArguments[1], mountainArguments[2], mountainArguments[3], mountainArguments[4], mountainArguments[5]));
             }
         }
-        catch (FileNotFoundException e) {
-            System.out.println("File now found");
+        catch (Exception e) {
+            e.printStackTrace();
         }
         System.out.println("CSV: ");
         System.out.println(mountainSet.getSet());
